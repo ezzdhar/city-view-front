@@ -818,3 +818,177 @@ nav ul li a.active {
     right: 35% !important;
   }
 }
+
+/* ==========================================================================
+   About Page 
+   ========================================================================== */
+
+/* About Page Specific Styles - abt prefix to isolate from home */
+.hero-about {
+  height: 100vh;
+  background-image: url('imges/banarr2.png');
+  background-size: cover;
+  background-position: center bottom;
+  display: flex;
+  align-items: flex-end;
+  color: var(--white);
+  padding: 0 5% 10%;
+}
+
+/* About Intro */
+.abt-intro {
+  padding: 100px 0 60px;
+  text-align: left;
+}
+
+.abt-intro .section-title {
+  text-align: left !important;
+  font-size: 40px !important;
+  margin: 0 0 30px 0 !important;
+  color: #041128 !important;
+}
+
+.abt-intro .intro-text p {
+  font-size: 21px;
+  color: #555;
+  margin-bottom: 20px;
+  width: 95%;
+  font-weight: 400;
+}
+
+/* Vision & Mission */
+.abt-vision-mission {
+  padding: 60px 0 100px;
+}
+
+.abt-vm-row {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  /* Text 40%, Image 60% for even larger images */
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+.abt-vm-row.reverse {
+  grid-template-columns: 1.2fr 0.8fr;
+  /* Image 60%, Text 40% for the mission section */
+  direction: ltr;
+  /* Ensure base LTR behavior */
+}
+
+.abt-vm-row.reverse .abt-vm-content {
+  grid-column: 2;
+  /* Put text in the second column */
+}
+
+.abt-vm-row.reverse .abt-vm-image {
+  grid-column: 1;
+  /* Put image in the first column */
+  grid-row: 1;
+}
+
+.abt-vm-content h2 {
+  font-size: 40px;
+  margin-bottom: 25px;
+  color: #041128;
+  font-weight: 600;
+}
+
+.abt-vm-p {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.abt-vision-mission .abt-vm-image {
+  width: 100%;
+  border-radius: 35px;
+  /* Restoration for premium look as in screenshot */
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+}
+
+.abt-vision-mission .abt-vm-image img {
+  width: 100%;
+  height: 420px;
+  display: block;
+  object-fit: cover;
+  /* Restoration for better image presentation */
+}
+
+/* Info Cards */
+.abt-info-card {
+  background: #041128 !important;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px) !important;
+  background-size: 35px 35px !important;
+  padding: 40px !important;
+  border-radius: 25px !important;
+  color: #FFFFFF !important;
+  text-align: left !important;
+  transition: transform 0.3s ease;
+}
+
+.abt-info-card:hover {
+  transform: translateY(-8px);
+}
+
+.abt-info-icon {
+  width: 50px !important;
+  height: 50px !important;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px !important;
+  margin: 0 0 20px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.abt-info-icon img {
+  width: 24px;
+}
+
+.abt-info-card h3 {
+  font-size: 24px !important;
+  margin-bottom: 10px !important;
+  font-weight: 600 !important;
+  color: #FFFFFF !important;
+}
+
+.abt-info-card p {
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin-bottom: 30px !important;
+  font-size: 15px !important;
+}
+
+.abt-btn-info {
+  display: block !important;
+  background: #FFFFFF !important;
+  color: #041128 !important;
+  padding: 14px 20px !important;
+  border-radius: 50px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  width: 100% !important;
+  transition: all 0.3s ease !important;
+}
+
+.abt-btn-info:hover {
+  background: #007AFF !important;
+  color: #FFFFFF !important;
+}
+
+.about-page [data-reveal] {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.about-page .revealed {
+  opacity: 1;
+  transform: translate(0, 0) !important;
+}
