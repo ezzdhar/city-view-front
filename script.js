@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Swiper
     const swiper = new Swiper('.work-slider', {
-        slidesPerView: 3,
+        slidesPerView: 1.1, 
         centeredSlides: true,
-        spaceBetween: 30,
+        spaceBetween: 10,
         loop: true,
-        speed: 2000,
+        speed: 1200,
         autoplay: {
-            delay: 0,
+            delay: 3500,
             disableOnInteraction: false,
         },
         allowTouchMove: true,
@@ -44,17 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
             prevEl: '.swiper-button-prev',
         },
         breakpoints: {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 10,
-            },
             768: {
-                slidesPerView: 2,
-                spaceBetween: 20,
+                slidesPerView: 1.5,
+                spaceBetween: 30,
             },
             1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
+                slidesPerView: 1.7, 
+                spaceBetween: 50,
             },
         },
     });
