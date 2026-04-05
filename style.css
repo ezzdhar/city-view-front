@@ -9,8 +9,12 @@
   --text-main: #FFFFFF;
   --text-muted: rgba(255, 255, 255, 0.8);
   --transition: all 0.3s ease;
+  --section-padding: 80px 0;
 }
 
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +24,12 @@
 body {
   font-family: 'IBM Plex Sans Arabic', sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
+  /* Prevents global horizontal scrolling from off-screen menus */
+}
+
+html {
+  overflow-x: hidden;
 }
 
 a {
@@ -33,9 +43,77 @@ a {
   padding: 0 20px;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
 
+/* Common Typography */
+.section-title,
+.work h2,
+.about-content h2,
+.msg-content h2,
+.abt-vm-content h2 {
+  font-size: 48px;
+  color: #000000;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
 
-/* Header & Nav */
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-content h2 {
+  font-size: 36px;
+}
+
+/* Common Buttons */
+.btn-primary,
+.btn-submit,
+.btn-info,
+.btn-download,
+.btn-location {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 14px 40px;
+  border-radius: 8px;
+  transition: var(--transition);
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--city-navy);
+  color: var(--white);
+}
+
+.btn-primary:hover,
+.btn-submit:hover,
+.btn-info:hover {
+  background-color: var(--accent-blue);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.btn-download {
+  background-color: var(--white);
+  color: var(--city-navy);
+  border-radius: 50px;
+  padding: 10px 24px;
+}
+
+.btn-download:hover {
+  background-color: var(--accent-blue);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
 header {
   position: fixed;
   top: 20px;
@@ -50,9 +128,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--glass-bg);
   backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--glass-border);
   border-radius: 10px;
   padding: 10px 30px;
   width: 100%;
@@ -67,7 +145,6 @@ header.scrolled {
 header.scrolled .nav-capsule {
   background: rgba(0, 34, 77, 0.85);
   padding: 8px 30px;
-  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .logo-section {
@@ -102,7 +179,8 @@ nav ul li a {
   transition: var(--transition);
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -111,23 +189,6 @@ nav ul li a.active {
   backdrop-filter: blur(10px);
 }
 
-.btn-download {
-  background-color: var(--white);
-  color: var(--city-navy);
-  padding: 10px 24px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: var(--transition);
-}
-
-.btn-download:hover {
-  background-color: var(--accent-blue);
-  color: var(--white);
-  transform: scale(1.05);
-}
-
-/* Hamburger */
 .header-actions {
   display: flex;
   align-items: center;
@@ -137,50 +198,79 @@ nav ul li a.active {
 .hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 2100;
+  /* Must stay ABOVE the mobile nav menu (which is 2000) */
+  width: 30px;
+  height: 30px;
 }
 
 .hamburger span {
+  display: block;
   width: 25px;
   height: 2px;
   background-color: var(--white);
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   border-radius: 5px;
+  transform-origin: center;
 }
 
+/* Perfect X Animation */
 .hamburger.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg) !important;
+  background-color: var(--white) !important;
 }
 
 .hamburger.active span:nth-child(2) {
-  opacity: 0;
+  opacity: 0 !important;
+  transform: translateX(-20px) !important;
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg) !important;
+  background-color: var(--white) !important;
 }
 
-/* Hero Section */
-.hero {
+/* ==========================================================================
+   Hero Sections
+   ========================================================================== */
+.hero,
+.hero-app,
+.hero-about,
+.hero-projects {
   height: 100vh;
-  background: linear-gradient(to right, rgba(0, 34, 77, 0.7), rgba(0, 34, 77, 0.2)), url('imges/banar.png');
   background-size: cover;
-  background-position: center;
+  background-position: center bottom;
   display: flex;
   align-items: flex-end;
-  /* Move to bottom */
   color: var(--white);
   padding: 0 5% 100px;
-  /* Large bottom padding */
+}
+
+.hero {
+  background-image: url('imges/banar.png');
+}
+
+.hero-app {
+  background-image: url("imges/Free iPhone 17 Pro.png");
+}
+
+.hero-about {
+  background-image: url('imges/banarr2.png');
+}
+
+.hero-projects {
+  background-image: url("imges/bannar3.png");
+  padding-bottom: 10%;
 }
 
 .allcontent {
   max-width: 1300px;
   width: 100%;
-  margin-left: 0 !important;
-  margin-right: auto !important;
+  margin: 0 auto !important;
 }
 
 .hero-content {
@@ -202,11 +292,22 @@ nav ul li a.active {
   max-width: 550px;
 }
 
-/* About Section */
-.about {
-  padding: 100px 0;
+/* ==========================================================================
+   Main Content Sections
+   ========================================================================== */
+.about,
+.work,
+.download-section,
+.contact-info,
+.contact-msg,
+.abt-intro,
+.abt-vision-mission,
+.serv-area,
+.projects-details {
+  padding: 80px 0 !important;
 }
 
+/* About Section */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -215,15 +316,7 @@ nav ul li a.active {
 }
 
 .about-img img {
-  width: 100%;
   border-radius: 20px;
-}
-
-.about-content h2 {
-  font-size: 36px;
-  color: #000000;
-  margin-bottom: 25px;
-  font-weight: 500;
 }
 
 .about-content p {
@@ -233,35 +326,10 @@ nav ul li a.active {
   max-width: 90%;
 }
 
-.btn-primary {
-  background-color: var(--city-navy);
-  color: var(--white);
-  padding: 14px 40px;
-  border-radius: 8px;
-  font-weight: 600;
-  display: inline-block;
-  transition: var(--transition);
-}
-
-.btn-primary:hover {
-  background-color: var(--accent-blue);
-  transform: translateY(-2px);
-}
-
-/* Our Work Section */
+/* Our Work Slider */
 .work {
-  padding: 100px 0;
-  background-color: var(--white);
   text-align: center;
-}
-
-.work h2,
-.section-title {
-  font-size: 48px;
-  color: #000000;
-  margin-bottom: 60px;
-  font-weight: 500;
-  text-align: center;
+  background: var(--white);
 }
 
 .work-slider {
@@ -276,14 +344,12 @@ nav ul li a.active {
   align-items: center;
 }
 
-/* Side slide scale - Making them significantly smaller than center as in design */
 .swiper-slide .work-card {
   transform: scale(0.68) translateY(10px);
   opacity: 0.6;
   filter: blur(1px);
 }
 
-/* Active center slide */
 .swiper-slide-active .work-card {
   transform: scale(1) translateY(0);
   opacity: 1 !important;
@@ -291,102 +357,16 @@ nav ul li a.active {
   filter: blur(0);
 }
 
-
 .work-card {
   width: 100%;
   max-width: 780px;
-  /* Reduced further as requested for more professional look */
   height: 460px;
   border-radius: 40px;
   overflow: hidden;
   position: relative;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
   background: #222;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-}
-
-/* Responsiveness for work-card */
-@media (max-width: 1024px) {
-  .work-card {
-    height: 450px;
-    border-radius: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .work-card {
-    height: 400px;
-    border-radius: 20px;
-    transform: scale(1) !important;
-    /* No scaling on mobile for better visibility */
-  }
-
-  .swiper-slide .work-card {
-    transform: scale(1) !important;
-    opacity: 1 !important;
-    filter: none !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .work-card {
-    height: 380px;
-    /* Sightly better height for mobile */
-  }
-
-  .work-text h3 {
-    font-size: 26px;
-    /* Slightly larger for clarity */
-    margin-bottom: 5px;
-  }
-
-  .work-text p.location {
-    font-size: 14px;
-    margin-bottom: 10px;
-    gap: 8px;
-  }
-
-  .work-text p.location img {
-    width: 14px;
-  }
-
-  .work-text p.desc {
-    display: none;
-    /* Keep hidden to avoid clutter */
-  }
-
-  .work-info {
-    padding: 20px;
-    flex-direction: row;
-    /* Keeping horizontal as requested */
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-
-  .work-text h3 {
-    font-size: 20px;
-    /* Shrunk font for mobile */
-    margin-bottom: 3px;
-  }
-
-  .work-text p.location {
-    font-size: 13px;
-    /* Shrunk font for mobile */
-    margin-bottom: 0px;
-    gap: 5px;
-  }
-
-  .btn-work-details {
-    padding: 6px 14px;
-    /* Shrunk padding for professional look */
-    font-size: 9px;
-    /* Minimal font for mobile */
-    gap: 6px;
-  }
-
-  .btn-work-details .arrow {
-    font-size: 10px;
-  }
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .work-card img {
@@ -402,14 +382,12 @@ nav ul li a.active {
   left: 0;
   width: 100%;
   padding: 50px;
-  /* More padding as in design */
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
   color: white;
   text-align: left;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  transition: all 0.6s ease;
 }
 
 .work-text h3 {
@@ -429,6 +407,12 @@ nav ul li a.active {
   font-weight: 500;
 }
 
+.work-text p.location img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
 .work-text p.desc {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.9);
@@ -442,7 +426,6 @@ nav ul li a.active {
   padding: 10px 24px;
   border-radius: 50px;
   font-size: 13px;
-  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   display: flex;
@@ -451,31 +434,7 @@ nav ul li a.active {
   white-space: nowrap;
 }
 
-.btn-slider {
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: white;
-  padding: 10px 22px;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: 500;
-  backdrop-filter: blur(5px);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: var(--transition);
-}
-
-.btn-slider:hover {
-  background: var(--white);
-  color: var(--city-navy);
-  border-color: var(--white);
-}
-
-.btn-slider .arrow {
-  font-size: 18px;
-}
-
-
+/* Slider Nav */
 .slider-nav {
   display: flex;
   justify-content: center;
@@ -495,17 +454,11 @@ nav ul li a.active {
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.08);
   position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  right: auto !important;
-  bottom: auto !important;
-  transform: none !important;
-  margin: 0 !important;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
@@ -529,7 +482,6 @@ nav ul li a.active {
   height: 10px;
   border-top: 2.5px solid currentColor;
   border-right: 2.5px solid currentColor;
-  position: absolute;
   display: block;
 }
 
@@ -541,16 +493,6 @@ nav ul li a.active {
 .slider-nav .swiper-button-next::before {
   transform: rotate(45deg);
   margin-right: 3px;
-}
-
-
-
-/* Sections Transitions */
-
-.download-section,
-.contact-info,
-.contact-msg {
-  padding: 100px 0;
 }
 
 /* Download Section */
@@ -567,7 +509,6 @@ nav ul li a.active {
   background: var(--white);
   padding: 10px;
   border-radius: 20px;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
   border: 1px solid #000000;
   transition: var(--transition);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
@@ -575,7 +516,6 @@ nav ul li a.active {
 
 .download-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
 }
 
 .qr-code img {
@@ -599,8 +539,7 @@ nav ul li a.active {
   font-weight: 500;
 }
 
-/* Contact Info Section */
-
+/* Contact Forms & Info */
 .info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -615,13 +554,9 @@ nav ul li a.active {
     linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 35px 35px;
-  /* Blueprint Grid */
   padding: 22px 29px;
-  /* Reduced padding */
   border-radius: 25px;
   color: var(--white);
-  text-align: left;
-  /* Alignment to left */
   transition: var(--transition);
 }
 
@@ -630,22 +565,18 @@ nav ul li a.active {
 }
 
 .info-icon {
-  width: 20px;
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .info-icon img {
   max-width: 36px;
-  max-height: 36px;
   object-fit: contain;
 }
 
 .info-card h3 {
   font-size: 24px;
-  /* Refined title size */
   margin-bottom: 10px;
   font-weight: 600;
 }
@@ -654,26 +585,15 @@ nav ul li a.active {
   color: var(--text-muted);
   margin-bottom: 30px;
   font-size: 14px;
-  font-weight: 400;
 }
 
 .btn-info {
-  display: inline-block;
   background: var(--white);
   color: var(--city-navy);
   padding: 14px 35px;
   border-radius: 12px;
-  font-weight: 600;
-  font-size: 15px;
-  transition: var(--transition);
 }
 
-.btn-info:hover {
-  background: var(--accent-blue);
-  color: var(--white);
-}
-
-/* Contact Message Section */
 .msg-grid {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -682,7 +602,7 @@ nav ul li a.active {
 }
 
 .subtitle {
-  color: #041128;
+  color: var(--city-navy);
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 15px;
@@ -711,7 +631,6 @@ nav ul li a.active {
   background: transparent;
   font-family: inherit;
   font-size: 16px;
-  color: var(--city-navy);
   outline: none;
   transition: var(--transition);
 }
@@ -724,19 +643,8 @@ nav ul li a.active {
 .btn-submit {
   background: var(--city-navy);
   color: var(--white);
-  padding: 18px 50px;
   border-radius: 10px;
   border: none;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.btn-submit:hover {
-  background: var(--accent-blue);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 122, 255, 0.3);
 }
 
 .msg-map {
@@ -746,7 +654,198 @@ nav ul li a.active {
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
 }
 
-/* Premium Footer */
+/* ==========================================================================
+   About & App Specifics
+   ========================================================================== */
+.abt-intro {
+  text-align: left;
+}
+
+.abt-intro .section-title {
+  text-align: left !important;
+  font-size: 40px !important;
+  margin-bottom: 30px !important;
+  color: var(--city-navy) !important;
+}
+
+.abt-intro .intro-text p {
+  font-size: 21px;
+  color: #555;
+  width: 95%;
+}
+
+.abt-vm-row {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.abt-vm-row.reverse {
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+.abt-vm-row.reverse .abt-vm-content {
+  grid-column: 2;
+}
+
+.abt-vm-row.reverse .abt-vm-image {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.abt-vm-content h2 {
+  font-size: 40px;
+}
+
+.abt-vm-p {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.abt-vision-mission .abt-vm-image {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+}
+
+.abt-vision-mission .abt-vm-image img {
+  height: 420px;
+  object-fit: cover;
+}
+
+.app-specific .abt-vm-image {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.app-specific .abt-vm-image img {
+  height: 600px !important;
+  object-fit: contain !important;
+  width: 100%;
+}
+
+.app-specific .abt-vm-row {
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 60px;
+}
+
+.app-specific .abt-vm-row.reverse {
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+/* Info Cards (About Page) */
+.abt-info-card {
+  background: var(--city-navy) !important;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px) !important;
+  background-size: 35px 35px !important;
+  padding: 40px !important;
+  border-radius: 25px !important;
+  color: var(--white) !important;
+}
+
+.abt-info-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.abt-info-card h3 {
+  font-size: 24px !important;
+  margin-bottom: 10px !important;
+}
+
+.abt-info-card p {
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin-bottom: 30px !important;
+  font-size: 15px !important;
+}
+
+/* ==========================================================================
+   Projects Page
+   ========================================================================== */
+.projects-page .project-main-title {
+  font-size: 44px;
+  color: var(--city-navy);
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.projects-page .project-block {
+  margin-bottom: 70px;
+}
+
+.projects-page .project-block h2 {
+  font-size: 32px;
+  color: var(--city-navy);
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.projects-page .project-block p {
+  font-size: 20px;
+  color: #555;
+  max-width: 85%;
+}
+
+.projects-page .projects-map-section {
+  padding: 0 0 80px;
+}
+
+.projects-page .map-container {
+  height: 530px;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.projects-page .location-pin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.projects-page .pin-icon {
+  width: 60px;
+  height: 60px;
+  transition: var(--transition);
+}
+
+.projects-page .map-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.projects-page .map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
 .footer-premium {
   background-color: var(--city-navy);
   color: var(--white);
@@ -785,20 +884,17 @@ nav ul li a.active {
   align-items: center;
   justify-content: center;
   transition: var(--transition);
-  color: var(--white);
 }
 
 .social-links a:hover {
   background: var(--accent-blue);
   transform: translateY(-5px);
-  border-color: var(--accent-blue);
 }
 
 .social-links a img {
   width: 45px;
   height: 45px;
   object-fit: contain;
-  transition: var(--transition);
 }
 
 .social-links a:hover img {
@@ -828,24 +924,15 @@ nav ul li a.active {
   background: var(--accent-blue);
 }
 
-.footer-col p {
+.footer-col p,
+.footer-col ul li a {
   color: var(--text-muted);
-  margin-bottom: 15px;
   font-size: 16px;
+  margin-bottom: 15px;
 }
 
 .footer-col ul {
   list-style: none;
-}
-
-.footer-col ul li {
-  margin-bottom: 15px;
-}
-
-.footer-col ul li a {
-  color: var(--text-muted);
-  transition: var(--transition);
-  font-size: 16px;
 }
 
 .footer-col ul li a:hover {
@@ -864,7 +951,27 @@ nav ul li a.active {
   font-size: 14px;
 }
 
-/* ================== Responsive Overrides (Refined for Perfect Fit) ================== */
+/* ==========================================================================
+   Animation Utils (Global Reveal)
+   ========================================================================== */
+[data-reveal] {
+  opacity: 0;
+  transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: var(--delay, 0s); /* Supports staggered animations for card groups */
+}
+
+[data-reveal="up"] { transform: translateY(60px); }
+[data-reveal="left"] { transform: translateX(-60px); }
+[data-reveal="right"] { transform: translateX(60px); }
+
+[data-reveal].revealed {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
+/* ==========================================================================
+   Responsive Overrides
+   ========================================================================== */
 
 @media (max-width: 1024px) {
   .hero-content h1 {
@@ -885,6 +992,11 @@ nav ul li a.active {
 
   .footer-grid {
     gap: 40px;
+  }
+
+  .work-card {
+    height: 450px;
+    border-radius: 30px;
   }
 }
 
@@ -924,17 +1036,60 @@ nav ul li a.active {
     display: flex;
   }
 
+  .nav-capsule {
+    padding: 10px 20px;
+  }
+
   nav ul {
     position: fixed;
     top: 0;
-    right: -100%;
-    width: 80%;
+    right: -100vw;
+    /* Using vw to ensure it's completely outside current screen width */
+    width: 100%;
     height: 100vh;
     background: var(--city-navy);
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 40px;
     z-index: 2000;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    visibility: hidden;
+    /* Truly hidden when closed */
+    opacity: 0;
+  }
+
+  nav ul.active {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  nav ul li a {
+    font-size: 24px;
+    /* Larger, professional font size on mobile */
+    font-weight: 600;
+    opacity: 0.8;
+  }
+
+  nav ul li a:hover,
+  nav ul li a.active {
+    opacity: 1;
+    background: transparent;
+    /* Remove the capsule on mobile for sleek look */
+    color: var(--accent-blue);
+  }
+
+  .work-card {
+    height: 400px;
+    border-radius: 20px;
+    transform: scale(1) !important;
+  }
+
+  .swiper-slide .work-card {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    filter: none !important;
   }
 
   .slider-nav .swiper-button-next,
@@ -944,12 +1099,11 @@ nav ul li a.active {
   }
 
   .slider-nav {
-    margin-top: 25px;
-    gap: 15px;
+    margin-top: 41px;
+    gap: 50px;
   }
 }
 
-/* Vertical Stacking triggers from 490px downwards */
 @media (max-width: 490px) {
 
   .about,
@@ -959,7 +1113,7 @@ nav ul li a.active {
   .contact-msg,
   .download-section,
   .contact-info,
-  .projects-page .projects-details {
+  .projects-details {
     padding: 50px 0 !important;
   }
 
@@ -986,7 +1140,7 @@ nav ul li a.active {
     font-size: 24px !important;
   }
 
-  /* Fix stacking and prevent overlapping for all vision/mission rows */
+  /* Grid Reset for mobile */
   .abt-vm-row .abt-vm-content,
   .abt-vm-row .abt-vm-image,
   .abt-vm-row.reverse .abt-vm-content,
@@ -1000,20 +1154,21 @@ nav ul li a.active {
   .abt-intro .intro-text p {
     max-width: 100%;
     font-size: 14.5px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
   }
 
-  /* Centering headings in vision/mission blocks */
   .abt-vm-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    order: 1;
     text-align: center;
-    order: 1; /* Standard stacking: title then image */
   }
 
-  /* Ensure images are visible on mobile */
+  .abt-vm-image {
+    order: 2;
+  }
+
   .app-specific .abt-vm-image img {
     height: 350px !important;
     margin-top: 20px;
@@ -1022,22 +1177,24 @@ nav ul li a.active {
     opacity: 1 !important;
   }
 
-  .abt-vm-image {
-    order: 2; /* For Vision section specifically, we want stack logic */
-  }
-
-  .footer-brand {
+  .footer-brand,
+  .footer-links {
     text-align: center !important;
+    grid-template-columns: 1fr !important;
   }
 
   .footer-brand p {
     margin: 0 auto 20px;
-    font-size: 14px;
   }
 
-  .footer-links {
-    grid-template-columns: 1fr !important;
-    text-align: center !important;
+  .footer-brand .footer-logo {
+    display: block !important;
+    margin: 0 auto 30px !important;
+  }
+
+  .social-links {
+    justify-content: center !important;
+    margin-bottom: 40px;
   }
 
   .footer-col h4::after {
@@ -1048,6 +1205,14 @@ nav ul li a.active {
   .download-card {
     flex-direction: column !important;
     padding: 25px 15px;
+  }
+
+  .info-icon,
+  .abt-info-icon {
+    justify-content: center !important;
+    margin: 0 auto 20px !important;
+    width: 100% !important;
+    /* Allow justify-content to work across the card */
   }
 
   .qr-code img {
@@ -1063,11 +1228,12 @@ nav ul li a.active {
   .btn-submit,
   .btn-download {
     width: 100%;
-    text-align: center;
+
   }
 
-  .nav-capsule {
-    padding: 8px 12px;
+  .btn-download {
+    padding: 10px 13px;
+
   }
 
   .logo img {
@@ -1081,18 +1247,52 @@ nav ul li a.active {
 
   .projects-page .project-block h2 {
     font-size: 22px;
+    text-align: center;
   }
 
   .projects-page .project-block p {
     font-size: 14px;
+    text-align: center;
+    max-width: 100%;
   }
 
   .projects-page .map-container {
     height: 300px;
   }
+
+  .work-card {
+    height: 380px;
+  }
+
+  .work-info {
+    padding: 20px;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .work-text h3 {
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+
+  .work-text p.desc {
+    display: none;
+  }
+
+  .work-text p.location {
+    font-size: 13px;
+    margin-bottom: 0px;
+    gap: 5px;
+  }
+
+  .btn-work-details {
+    padding: 6px 14px;
+    font-size: 9px;
+    gap: 6px;
+  }
 }
 
-/* Specific Adjustments for 375px and below */
 @media (max-width: 375px) {
   .hero-content h1 {
     font-size: 24px;
@@ -1112,561 +1312,4 @@ nav ul li a.active {
   .download-info h3 {
     font-size: 20px;
   }
-}
-
-/* ==========================================================================
-   About Page 
-   ========================================================================== */
-
-/* About Page Specific Styles - abt prefix to isolate from home */
-.hero-about {
-  height: 100vh;
-  background-image: url('imges/banarr2.png');
-  background-size: cover;
-  background-position: center bottom;
-  display: flex;
-  align-items: flex-end;
-  color: var(--white);
-  padding: 0 5% 10%;
-}
-
-/* About Intro */
-.abt-intro {
-  padding: 100px 0 60px;
-  text-align: left;
-}
-
-.abt-intro .section-title {
-  text-align: left !important;
-  font-size: 40px !important;
-  margin: 0 0 30px 0 !important;
-  color: #041128 !important;
-}
-
-.abt-intro .intro-text p {
-  font-size: 21px;
-  color: #555;
-  margin-bottom: 20px;
-  width: 95%;
-  font-weight: 400;
-}
-
-/* Vision & Mission */
-.abt-vision-mission {
-  padding: 60px 0 100px;
-}
-
-.abt-vm-row {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  /* Text 40%, Image 60% for even larger images */
-  gap: 80px;
-  align-items: center;
-  margin-bottom: 120px;
-}
-
-.abt-vm-row.reverse {
-  grid-template-columns: 1.2fr 0.8fr;
-  /* Image 60%, Text 40% for the mission section */
-  direction: ltr;
-  /* Ensure base LTR behavior */
-}
-
-.abt-vm-row.reverse .abt-vm-content {
-  grid-column: 2;
-  /* Put text in the second column */
-}
-
-.abt-vm-row.reverse .abt-vm-image {
-  grid-column: 1;
-  /* Put image in the first column */
-  grid-row: 1;
-}
-
-.abt-vm-content h2 {
-  font-size: 40px;
-  margin-bottom: 25px;
-  color: #041128;
-  font-weight: 600;
-}
-
-.abt-vm-p {
-  font-size: 17px;
-  color: #555;
-  line-height: 1.8;
-}
-
-.abt-vision-mission .abt-vm-image {
-  width: 100%;
-  border-radius: 35px;
-  /* Restoration for premium look as in screenshot */
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  background-color: #f5f5f5;
-}
-
-.abt-vision-mission .abt-vm-image img {
-  width: 100%;
-  height: 420px;
-  display: block;
-  object-fit: cover;
-  /* Restoration for better image presentation */
-}
-
-/* Info Cards */
-.abt-info-card {
-  background: #041128 !important;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px) !important;
-  background-size: 35px 35px !important;
-  padding: 40px !important;
-  border-radius: 25px !important;
-  color: #FFFFFF !important;
-  text-align: left !important;
-  transition: transform 0.3s ease;
-}
-
-.abt-info-card:hover {
-  transform: translateY(-8px);
-}
-
-.abt-info-icon {
-  width: 50px !important;
-  height: 50px !important;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px !important;
-  margin: 0 0 20px !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-}
-
-.abt-info-icon img {
-  width: 24px;
-}
-
-.abt-info-card h3 {
-  font-size: 24px !important;
-  margin-bottom: 10px !important;
-  font-weight: 600 !important;
-  color: #FFFFFF !important;
-}
-
-.abt-info-card p {
-  color: rgba(255, 255, 255, 0.7) !important;
-  margin-bottom: 30px !important;
-  font-size: 15px !important;
-}
-
-.abt-btn-info {
-  display: block !important;
-  background: #FFFFFF !important;
-  color: #041128 !important;
-  padding: 14px 20px !important;
-  border-radius: 50px !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  text-align: center !important;
-  text-decoration: none !important;
-  width: 100% !important;
-  transition: all 0.3s ease !important;
-}
-
-.abt-btn-info:hover {
-  background: #007AFF !important;
-  color: #FFFFFF !important;
-}
-
-.about-page [data-reveal] {
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.about-page .revealed {
-  opacity: 1 !important;
-  transform: translate(0, 0) !important;
-}
-
-/* About App Specific Styles - Isolated using .app-specific */
-.hero-app {
-  height: 100vh;
-  background-image: url("imges/Free iPhone 17 Pro.png");
-  background-size: cover;
-  background-position: center bottom;
-  display: flex;
-  align-items: flex-end;
-  color: var(--white);
-  padding: 0 5% 10%;
-}
-
-.app-specific .abt-vm-image {
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  background: transparent !important;
-  height: auto !important;
-}
-
-.app-specific .abt-vm-image img {
-  object-fit: contain !important;
-}
-
-/* ==========================================================================
-   About Page 
-   ========================================================================== */
-
-/* About Page Specific Styles - abt prefix to isolate from home */
-.hero-about {
-  height: 100vh;
-  background-image: url('imges/banarr2.png');
-  background-size: cover;
-  background-position: center bottom;
-  display: flex;
-  align-items: flex-end;
-  color: var(--white);
-  padding: 0 5% 10%;
-}
-
-/* About Intro */
-.abt-intro {
-  padding: 100px 0 60px;
-  text-align: left;
-}
-
-.abt-intro .section-title {
-  text-align: left !important;
-  font-size: 40px !important;
-  margin: 0 0 30px 0 !important;
-  color: #041128 !important;
-}
-
-.abt-intro .intro-text p {
-  font-size: 21px;
-  color: #555;
-  margin-bottom: 20px;
-  width: 95%;
-  font-weight: 400;
-}
-
-/* Vision & Mission */
-.abt-vision-mission {
-  padding: 60px 0 100px;
-}
-
-.abt-vm-row {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  /* Text 40%, Image 60% for even larger images */
-  gap: 80px;
-  align-items: center;
-  margin-bottom: 120px;
-}
-
-.abt-vm-row.reverse {
-  grid-template-columns: 1.2fr 0.8fr;
-  /* Image 60%, Text 40% for the mission section */
-  direction: ltr;
-  /* Ensure base LTR behavior */
-}
-
-.abt-vm-row.reverse .abt-vm-content {
-  grid-column: 2;
-  /* Put text in the second column */
-}
-
-.abt-vm-row.reverse .abt-vm-image {
-  grid-column: 1;
-  /* Put image in the first column */
-  grid-row: 1;
-}
-
-.abt-vm-content h2 {
-  font-size: 40px;
-  margin-bottom: 25px;
-  color: #041128;
-  font-weight: 600;
-}
-
-.abt-vm-p {
-  font-size: 17px;
-  color: #555;
-  line-height: 1.8;
-}
-
-.abt-vision-mission .abt-vm-image {
-  width: 100%;
-  border-radius: 35px;
-  /* Restoration for premium look as in screenshot */
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  background-color: #f5f5f5;
-}
-
-.abt-vision-mission .abt-vm-image img {
-  width: 100%;
-  height: 420px;
-  display: block;
-  object-fit: cover;
-  /* Restoration for better image presentation */
-}
-
-/* Info Cards */
-.abt-info-card {
-  background: #041128 !important;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px) !important;
-  background-size: 35px 35px !important;
-  padding: 40px !important;
-  border-radius: 25px !important;
-  color: #FFFFFF !important;
-  text-align: left !important;
-  transition: transform 0.3s ease;
-}
-
-.abt-info-card:hover {
-  transform: translateY(-8px);
-}
-
-.abt-info-icon {
-  width: 50px !important;
-  height: 50px !important;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px !important;
-  margin: 0 0 20px !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-}
-
-.abt-info-icon img {
-  width: 24px;
-}
-
-.abt-info-card h3 {
-  font-size: 24px !important;
-  margin-bottom: 10px !important;
-  font-weight: 600 !important;
-  color: #FFFFFF !important;
-}
-
-.abt-info-card p {
-  color: rgba(255, 255, 255, 0.7) !important;
-  margin-bottom: 30px !important;
-  font-size: 15px !important;
-}
-
-.abt-btn-info {
-  display: block !important;
-  background: #FFFFFF !important;
-  color: #041128 !important;
-  padding: 14px 20px !important;
-  border-radius: 50px !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  text-align: center !important;
-  text-decoration: none !important;
-  width: 100% !important;
-  transition: all 0.3s ease !important;
-}
-
-.abt-btn-info:hover {
-  background: #007AFF !important;
-  color: #FFFFFF !important;
-}
-
-.about-page [data-reveal] {
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.about-page .revealed {
-  opacity: 1 !important;
-  transform: translate(0, 0) !important;
-}
-
-/* About App Specific Styles - Isolated using .app-specific */
-.hero-app {
-  height: 100vh;
-  background-image: url("imges/Free iPhone 17 Pro.png");
-  background-size: cover;
-  background-position: center bottom;
-  display: flex;
-  align-items: flex-end;
-  color: var(--white);
-  padding: 0 5% 10%;
-}
-
-.app-specific .abt-vm-image {
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  background: transparent !important;
-  height: auto !important;
-}
-
-.app-specific .abt-vm-image img {
-  height: 600px !important;
-  object-fit: contain !important;
-  width: 100%;
-}
-
-.app-specific .abt-vm-row {
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  /* Text Area 62.5%, Image Area 37.5% */
-  gap: 60px;
-  align-items: center;
-  margin-bottom: 80px;
-}
-
-.app-specific .abt-vm-row.reverse {
-  grid-template-columns: 0.75fr 1.25fr;
-  /* Image Area 37.5%, Text Area 62.5% */
-}
-
-/* Unified Section Spacing - Refined for Professional Consistent Look */
-.about,
-.work,
-.abt-intro,
-.abt-vision-mission,
-.download-section,
-.contact-info,
-.contact-msg,
-.serv-area {
-  padding: 80px 0 !important;
-}
-
-.hero-projects {
-  height: 100vh;
-  background-image: url("imges/bannar3.png");
-  background-size: cover;
-  background-position: center bottom;
-  display: flex;
-  align-items: flex-end;
-  color: var(--white);
-  padding: 0 5% 10%;
-}
-
-.projects-page .projects-details {
-  padding: 80px 0 60px;
-}
-
-.projects-page .project-main-title {
-  font-size: 44px;
-  color: #041128;
-  margin-bottom: 40px;
-  font-weight: 700;
-}
-
-.projects-page .project-block {
-  margin-bottom: 70px;
-}
-
-.projects-page .project-block h2 {
-  font-size: 32px;
-  color: #041128;
-  margin-bottom: 25px;
-  font-weight: 600;
-}
-
-.projects-page .project-block p {
-  font-size: 20px;
-  font-weight: 400;
-  color: #555;
-  max-width: 85%;
-}
-
-.projects-page .projects-map-section {
-  padding: 0 0 80px;
-}
-
-.projects-page .map-container {
-  width: 100%;
-  height: 530px;
-  border-radius: 20px;
-  background: #f0f3f7;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-}
-
-.projects-page .location-pin {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.projects-page .pin-icon {
-  width: 60px;
-  height: 60px;
-  transition: transform 0.3s ease;
-}
-
-.projects-page .pin-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.projects-page .btn-location {
-  background: #041128;
-  color: #FFFFFF;
-  padding: 14px 40px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.projects-page .btn-location:hover {
-  background: #007AFF;
-  transform: translateY(-3px);
-}
-
-/* Interactive Map Preparations - Ready for iframe */
-.projects-page .map-frame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.projects-page .map-placeholder-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.85);
-  /* Slightly darker to make PIN stand out */
-}
-
-.projects-page .map-frame iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.projects-page .location-pin {
-  position: relative;
-  z-index: 2;
-  pointer-events: none;
-  /* Allows pointer to pass to map but btn needs it */
-}
-
-.projects-page .btn-location {
-  pointer-events: auto;
-  /* Ensure button remains clickable */
-}
-
-.work-text .icon {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
 }

@@ -27,9 +27,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initialize Swiper
+    // Initialize Reveal on Scroll
+    const revealElements = document.querySelectorAll('[data-reveal]');
+    const revealConfig = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                // stop observing after reveal if you want it to stay
+                // revealObserver.unobserve(entry.target);
+            }
+        });
+    }, revealConfig);
+
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // Link Swiper
     const swiper = new Swiper('.work-slider', {
-        slidesPerView: 1.1, 
+        slidesPerView: 1.1,
         centeredSlides: true,
         spaceBetween: 10,
         loop: true,
@@ -49,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 spaceBetween: 30,
             },
             1024: {
-                slidesPerView: 1.7, 
+                slidesPerView: 1.7,
                 spaceBetween: 50,
             },
         },

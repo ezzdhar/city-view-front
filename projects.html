@@ -20,7 +20,7 @@
             <nav class="nav-capsule">
                 <div class="logo-section">
                     <div class="logo">
-                        <img src="imges/logo.png" alt="City View Logo">
+                        <a href="index.html"><img src="imges/logo.png" alt="City View Logo"></a>
                     </div>
                     <div class="divider"></div>
                 </div>
@@ -45,8 +45,8 @@
     <section id="home" class="hero hero-projects">
         <div class="container allcontent">
             <div class="hero-content">
-                <h1>Find Your Space,<br>Build Your Future.</h1>
-                <p>Accelerate your business with Ezdhar. We specialize in high-impact outreach, tele-prospecting, and
+                <h1 data-reveal="up">Find Your Space,<br>Build Your Future.</h1>
+                <p data-reveal="up" style="--delay: 0.2s">Accelerate your business with Ezdhar. We specialize in high-impact outreach, tele-prospecting, and
                     lead gen designed to take your B2B growth to new heights.</p>
             </div>
         </div>
@@ -56,7 +56,7 @@
         <div class="container" data-reveal="bottom">
             <h1 class="project-main-title">Project Tittle</h1>
 
-            <div class="project-block">
+            <div class="project-block" data-reveal="bottom">
                 <h2>Overview</h2>
                 <p>Every idea starts with a spark Ezdhar turns it into reality. As your growth partner, we unite
                     strategy, design, technology, and execution to build brands, launch campaigns, and drive sustainable
@@ -97,7 +97,7 @@
     <section class="contact-info ">
         <div class="container">
             <div class="info-grid">
-                <div class="info-card">
+                <div class="info-card" data-reveal="up" style="--delay: 0.1s">
                     <div class="info-icon">
                         <img src="imges/mail.png" alt="Mail Icon">
                     </div>
@@ -105,7 +105,7 @@
                     <p>info@ezdhar.com</p>
                     <a href="mailto:info@ezdhar.com" class="btn-info">Send an Email</a>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-reveal="up" style="--delay: 0.3s">
                     <div class="info-icon">
                         <img src="imges/phone-incoming.png" alt="Phone Icon">
                     </div>
@@ -113,7 +113,7 @@
                     <p>01096524592</p>
                     <a href="tel:01096524592" class="btn-info">Give us a Call</a>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-reveal="up" style="--delay: 0.5s">
                     <div class="info-icon">
                         <img src="imges/map-pin.png" alt="Location Icon">
                     </div>
@@ -128,7 +128,7 @@
     <footer class="footer-premium">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-brand">
+                <div class="footer-brand" data-reveal="up">
                     <img src="imges/logo.png" alt="City View Logo" class="footer-logo">
                     <p>At Ezdhar, We Don't Wait For Opportunities. We Build Them Together With You.</p>
                     <div class="social-links">
@@ -138,7 +138,7 @@
                         <a href="#"><img src="imges/twiter.png" alt="Twitter"></a>
                     </div>
                 </div>
-                <div class="footer-links">
+                <div class="footer-links" data-reveal="up" style="--delay: 0.2s">
                     <div class="footer-col">
                         <h4>Contact Us</h4>
                         <p>01096524592</p>
@@ -163,25 +163,6 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
-    <script>
-        // Simple Reveal Animation
-        const sections = document.querySelectorAll('[data-reveal]');
-        const revealConfig = {
-            threshold: 0.1
-        };
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, revealConfig);
-
-        sections.forEach(section => {
-            revealObserver.observe(section);
-        });
-    </script>
 </body>
 
 </html>

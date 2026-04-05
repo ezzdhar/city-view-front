@@ -20,13 +20,13 @@
             <nav class="nav-capsule">
                 <div class="logo-section">
                     <div class="logo">
-                        <img src="imges/logo.png" alt="City View Logo">
+                        <a href="index.html"><img src="imges/logo.png" alt="City View Logo"></a>
                     </div>
                     <div class="divider"></div>
                 </div>
                 <ul id="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="#services">Our Services</a></li>
                     <li><a href="#work">Our Work</a></li>
                     <li><a href="#contacts">Contacts</a></li>
@@ -46,8 +46,8 @@
     <section id="home" class="hero">
         <div class="container  allcontent">
             <div class="hero-content">
-                <h1>Find Your Space,<br>Build Your Future.</h1>
-                <p>Accelerate your business with Ezdhar. We specialize in high-impact outreach, tele-prospecting, and
+                <h1 data-reveal="up">Find Your Space,<br>Build Your Future.</h1>
+                <p data-reveal="up" style="--delay: 0.2s">Accelerate your business with Ezdhar. We specialize in high-impact outreach, tele-prospecting, and
                     lead gen designed to take your B2B growth to new heights.</p>
             </div>
         </div>
@@ -55,7 +55,7 @@
 
     <section id="about" class="about">
         <div class="container">
-            <div class="about-grid">
+            <div class="about-grid" data-reveal="up">
                 <div class="about-img">
                     <img src="imges/banar (2).png" alt="Modern Architecture">
                 </div>
@@ -81,7 +81,9 @@
                         <div class="work-info">
                             <div class="work-text">
                                 <h3>City View</h3>
-                                <p><img src="pin.svg" class="icon" alt=""> Cairo, Fifth Settlement</p>
+                                <p class="location"><img src="imges/map-pin.png" class="icon" alt="">Cairo, Fifth
+                                    Settlement
+                                </p>
                             </div>
                             <a href="projects.html" class="btn-work-details">PROJECT DETAILS <span
                                     class="arrow">↗</span></a>
@@ -204,8 +206,8 @@
                 <div class="about-img">
                     <img src="imges/image 704.png" alt="Modern Architecture">
                 </div>
-                <div class="about-content">
-                    <h2>The City View App</h2>
+                <div class="about-content" data-reveal="up">
+                    <h2>Modern Space For Your Better Life.</h2>
                     <p> Every idea starts with a spark Ezdhar turns it into reality. As your growth partner, we unite
                         strategy, design, technology, and execution to build brands, launch campaigns, and drive
                         sustainable growth. We don’t wait for opportunities we create them with you.</p>
@@ -215,10 +217,11 @@
         </div>
     </section>
 
-    <section class="download-section">
+    <section id="download" class="download-section" data-reveal="up">
         <div class="container">
+            <h2 class="section-title" data-reveal="up">Download Ezdhar App</h2>
             <div class="download-grid">
-                <div class="download-card">
+                <div class="download-card" data-reveal="up" style="--delay: 0.1s">
                     <div class="qr-code">
                         <img src="imges/image 706.png" alt="QR Code Android">
                     </div>
@@ -227,7 +230,7 @@
                         <p>Scan The QR Code</p>
                     </div>
                 </div>
-                <div class="download-card">
+                <div class="download-card" data-reveal="up" style="--delay: 0.3s">
                     <div class="qr-code">
                         <img src="imges/image 706.png" alt="QR Code iOS">
                     </div>
@@ -240,10 +243,10 @@
         </div>
     </section>
 
-    <section class="contact-info ">
+    <section id="contacts" class="contact-info" data-reveal="up">
         <div class="container">
             <div class="info-grid">
-                <div class="info-card">
+                <div class="info-card" data-reveal="up" style="--delay: 0.1s">
                     <div class="info-icon">
                         <img src="imges/mail.png" alt="Mail Icon">
                     </div>
@@ -251,7 +254,7 @@
                     <p>info@ezdhar.com</p>
                     <a href="mailto:info@ezdhar.com" class="btn-info">Send an Email</a>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-reveal="up" style="--delay: 0.3s">
                     <div class="info-icon">
                         <img src="imges/phone-incoming.png" alt="Phone Icon">
                     </div>
@@ -259,7 +262,7 @@
                     <p>01096524592</p>
                     <a href="tel:01096524592" class="btn-info">Give us a Call</a>
                 </div>
-                <div class="info-card">
+                <div class="info-card" data-reveal="up" style="--delay: 0.5s">
                     <div class="info-icon">
                         <img src="imges/map-pin.png" alt="Location Icon">
                     </div>
@@ -273,7 +276,7 @@
 
     <section class="contact-msg">
         <div class="container">
-            <div class="msg-grid">
+            <div class="msg-grid" data-reveal="up">
                 <div class="msg-content">
                     <p class="subtitle">Drop Us A Message</p>
                     <h2>Let's Start Working Together. Get in Touch</h2>
@@ -295,8 +298,10 @@
                     </form>
                 </div>
                 <div class="msg-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13653.284241728254!2d31.6705572!3d31.4334316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f9e16954203e05%3A0x6b09930777329580!2sNew%20Damietta%2C%20Damietta%20Governorate!5e0!3m2!1sen!2seg!4v1712300000000!5m2!1sen!2seg" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13653.284241728254!2d31.6705572!3d31.4334316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f9e16954203e05%3A0x6b09930777329580!2sNew%20Damietta%2C%20Damietta%20Governorate!5e0!3m2!1sen!2seg!4v1712300000000!5m2!1sen!2seg"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -305,7 +310,7 @@
     <footer class="footer-premium">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-brand">
+                <div class="footer-brand" data-reveal="up">
                     <img src="imges/logo.png" alt="City View Logo" class="footer-logo">
                     <p>At Ezdhar, We Don't Wait For Opportunities. We Build Them Together With You.</p>
                     <div class="social-links">
@@ -315,7 +320,7 @@
                         <a href="#"><img src="imges/twiter.png" alt="Twitter"></a>
                     </div>
                 </div>
-                <div class="footer-links">
+                <div class="footer-links" data-reveal="up" style="--delay: 0.2s">
                     <div class="footer-col">
                         <h4>Contact Us</h4>
                         <p>01096524592</p>
