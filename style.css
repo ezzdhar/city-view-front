@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   --city-navy: #041128;
@@ -848,11 +848,22 @@ nav ul li a.active {
   content: "";
   position: absolute;
   left: 0;
-  top: 12px;
-  width: 7px;
-  height: 7px;
+  top: 14px;
+  width: 8px;
+  height: 8px;
   background-color: var(--city-navy);
   border-radius: 50%;
+}
+
+/* RTL Support for features bullet points */
+html[lang="ar"] .projects-page .project-block ul li {
+  padding-left: 0;
+  padding-right: 25px;
+}
+
+html[lang="ar"] .projects-page .project-block ul li::before {
+  left: auto;
+  right: 0;
 }
 
 .projects-page .projects-map-section {
@@ -1104,7 +1115,7 @@ nav ul li a.active {
   }
 
   .nav-capsule {
-    padding: 10px 20px;
+    padding: 10px 5px;
   }
 
   nav ul {
@@ -1299,7 +1310,8 @@ nav ul li a.active {
   }
 
   .btn-download {
-    padding: 10px 13px;
+    padding: 10px 5px;
+    font-size: 11px;
 
   }
 
@@ -1378,5 +1390,156 @@ nav ul li a.active {
 
   .download-info h3 {
     font-size: 20px;
+  }
+}
+
+/* ==========================================================================
+   Language Toggle & RTL Styles
+   ========================================================================== */
+.lang-toggle {
+  background: transparent;
+  border: none;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: var(--transition);
+  padding: 5px 0;
+}
+
+.lang-toggle:hover {
+  color: var(--accent-blue);
+  transform: translateY(-2px);
+}
+
+.globe-icon {
+  stroke-width: 1.5;
+}
+
+/* RTL Font and Line Height Improvements */
+html[lang="ar"],
+html[lang="ar"] body,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] textarea,
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] .section-title,
+html[lang="ar"] .lang-toggle {
+  font-family: 'Cairo', sans-serif !important;
+}
+
+html[lang="ar"] body {
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .hero-content h1 {
+  line-height: 1.4;
+  font-size: 52px;
+}
+
+html[lang="ar"] .hero-content p {
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+html[lang="ar"] .about-content p,
+html[lang="ar"] .work-text p.desc,
+html[lang="ar"] .app-p,
+html[lang="ar"] .contact-form input,
+html[lang="ar"] .contact-form textarea,
+html[lang="ar"] .footer-brand p {
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+html[lang="ar"] .nav-capsule nav ul li a {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* RTL Specific Fixes */
+html[lang="ar"] .hero-content {
+  text-align: right;
+}
+
+html[lang="ar"] .btn-work-details .arrow {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+html[lang="ar"] .slider-nav {
+  flex-direction: row-reverse;
+}
+
+html[lang="ar"] .contact-form input,
+html[lang="ar"] .contact-form textarea {
+  text-align: right;
+}
+
+html[lang="ar"] .abt-intro,
+html[lang="ar"] .abt-intro .section-title,
+html[lang="ar"] .about-content,
+html[lang="ar"] .work-info,
+html[lang="ar"] .download-info,
+html[lang="ar"] .info-card,
+html[lang="ar"] .msg-content,
+html[lang="ar"] .footer-brand,
+html[lang="ar"] .footer-col {
+  text-align: right !important;
+}
+
+html[lang="ar"] .info-card h3 {
+  margin-right: 0;
+}
+
+html[lang="ar"] .info-icon {
+  justify-content: flex-start;
+}
+
+html[lang="ar"] .footer-col h4::after {
+  left: auto;
+  right: 0;
+}
+
+/* Force footer visibility on short pages */
+.projects-page .footer-premium [data-reveal],
+.app-specific .footer-premium [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Fix mobile menu RTL */
+html[lang="ar"] .hamburger {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+@media (max-width: 490px) {
+
+  html[lang="ar"] .hero-content,
+  html[lang="ar"] .abt-intro,
+  html[lang="ar"] .abt-intro .section-title,
+  html[lang="ar"] .about-content,
+  html[lang="ar"] .work-info,
+  html[lang="ar"] .download-info,
+  html[lang="ar"] .info-card,
+  html[lang="ar"] .msg-content,
+  html[lang="ar"] .footer-brand,
+  html[lang="ar"] .footer-links,
+  html[lang="ar"] .footer-col {
+    text-align: center !important;
+  }
+
+  html[lang="ar"] .info-icon,
+  html[lang="ar"] .abt-info-icon {
+    justify-content: center !important;
   }
 }

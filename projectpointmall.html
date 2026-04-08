@@ -23,15 +23,23 @@
                         <a href="index.html"><img src="imges/logo.png" alt="City View Logo"></a>
                     </div>
                     <div class="divider"></div>
+                    <button id="lang-toggle" class="lang-toggle">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="globe-icon">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span id="lang-text">AR</span>
+                    </button>
                 </div>
                 <ul id="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="index.html#work" class="active">Our Work</a></li>
-                    <li><a href="index.html#contacts">Contacts</a></li>
+                    <li><a href="index.html" data-i18n="nav-home">Home</a></li>
+                    <li><a href="about.html" data-i18n="nav-about">About Us</a></li>
+                    <li><a href="index.html#work" class="active" data-i18n="nav-work">Our Work</a></li>
+                    <li><a href="index.html#contacts" data-i18n="nav-contact">Contacts</a></li>
                 </ul>
                 <div class="header-actions">
-                    <a href="#" class="btn-download">Download The App</a>
+                    <a href="aboutapp.html" class="btn-download" data-i18n="nav-download">Download The App</a>
                     <div class="hamburger" id="hamburger">
                         <span></span>
                         <span></span>
@@ -45,8 +53,8 @@
     <section id="home" class="hero hero-projects">
         <div class="container allcontent">
             <div class="hero-content">
-                <h1 data-reveal="up">Center Point Mall</h1>
-                <p data-reveal="up" style="--delay: 0.2s">Center Point Mall is a prime investment opportunity in the
+                <h1 data-reveal="up" data-i18n="proj-pm-title-main">Center Point Mall</h1>
+                <p data-reveal="up" style="--delay: 0.2s" data-i18n="proj-pm-hero-desc">Center Point Mall is a prime investment opportunity in the
                     heart of the city, offering a strategic location and versatile spaces designed to suit commercial,
                     administrative, and residential needs with flexible layouts and easy accessibility.</p>
             </div>
@@ -55,11 +63,11 @@
 
     <section class="projects-details">
         <div class="container" data-reveal="bottom">
-            <h1 class="project-main-title">Center Point Mall</h1>
+            <h1 class="project-main-title" data-i18n="proj-pm-title-main">Center Point Mall</h1>
 
             <div class="project-block" data-reveal="bottom">
-                <h2>Overview</h2>
-                <p>Center Point Mall is a fully integrated development located in a strategic urban location, making it
+                <h2 data-i18n="proj-overview-title">Overview</h2>
+                <p data-i18n="proj-pm-overview-desc">Center Point Mall is a fully integrated development located in a strategic urban location, making it
                     an ideal destination for both investors and end users. The project features a wide range of unit
                     sizes tailored to accommodate commercial, administrative, and residential activities, ensuring
                     flexibility for different business models and lifestyles. Its well-planned layout promotes smooth
@@ -68,10 +76,10 @@
             </div>
 
             <div class="project-block">
-                <h2>Features & Perks</h2>
+                <h2 data-i18n="proj-features-title">Features & Perks</h2>
                 <ul>
-                    <li>Strategic location with mixed-use development: commercial, administrative, and residential.</li>
-                    <li>Flexible payment plans with installment periods of up to 36 months without interest.</li>
+                    <li data-i18n="proj-pm-feat-1">Strategic location with mixed-use development: commercial, administrative, and residential.</li>
+                    <li data-i18n="proj-pm-feat-2">Flexible payment plans with installment periods of up to 36 months without interest.</li>
                 </ul>
             </div>
         </div>
@@ -84,11 +92,11 @@
                     <img src="imges/Frame 2147224723.png" alt="City View App">
                 </div>
                 <div class="abt-vm-content">
-                    <h2>The City View App</h2>
-                    <p class="abt-vm-p">City View is a smart app for easily exploring properties, viewing detailed unit
+                    <h2 data-i18n="app-h2">The City View App</h2>
+                    <p class="abt-vm-p" data-i18n="app-explore-desc">City View is a smart app for easily exploring properties, viewing detailed unit
                         information, choosing by location and budget, and reselling with a single tap while tracking
                         everything end to end.</p>
-                    <a href="#" class="btn-primary btn-app-download">Download Now</a>
+                    <a href="#" class="btn-primary btn-app-download" data-i18n="btn-download-now">Download Now</a>
                 </div>
             </div>
         </div>
@@ -118,25 +126,25 @@
                     <div class="info-icon">
                         <img src="imges/mail.png" alt="Mail Icon">
                     </div>
-                    <h3>Mail Us :</h3>
+                    <h3 data-i18n="contact-mail">Mail Us :</h3>
                     <p>info@cityview.com</p>
-                    <a href="mailto:info@cityview.com" class="btn-info">Send an Email</a>
+                    <a href="mailto:info@cityview.com" class="btn-info" data-i18n="btn-email">Send an Email</a>
                 </div>
                 <div class="info-card" data-reveal="up" style="--delay: 0.3s">
                     <div class="info-icon">
                         <img src="imges/phone-incoming.png" alt="Phone Icon">
                     </div>
-                    <h3>Call Us :</h3>
+                    <h3 data-i18n="contact-call">Call Us :</h3>
                     <p>01050607061</p>
-                    <a href="tel:01050607061" class="btn-info">Give us a Call</a>
+                    <a href="tel:01050607061" class="btn-info" data-i18n="btn-call">Give us a Call</a>
                 </div>
                 <div class="info-card" data-reveal="up" style="--delay: 0.5s">
                     <div class="info-icon">
                         <img src="imges/map-pin.png" alt="Location Icon">
                     </div>
-                    <h3>Visit Us :</h3>
-                    <p>Mid Abu El-Kheir Street, New Damietta, Egypt.</p>
-                    <a href="#" class="btn-info">Get location</a>
+                    <h3 data-i18n="contact-visit">Visit Us :</h3>
+                    <p data-i18n="contact-desc-visit">Mid Abu El-Kheir Street, New Damietta, Egypt.</p>
+                    <a href="#" class="btn-info" data-i18n="btn-loc">Get location</a>
                 </div>
             </div>
         </div>
@@ -147,34 +155,34 @@
             <div class="footer-grid">
                 <div class="footer-brand" data-reveal="up">
                     <img src="imges/logo.png" alt="City View Logo" class="footer-logo">
-                    <p>A real estate developer with extensive experience in delivering distinguished residential and
+                    <p data-i18n="footer-desc">A real estate developer with extensive experience in delivering distinguished residential and
                         commercial projects, focused on innovative solutions that meet current and future market needs.
                     </p>
                     <div class="social-links">
                         <a href="#"><img src="imges/linkedin.png" alt="LinkedIn"></a>
-                        <a href="#"><img src="imges/instgram.png" alt="Instagram"></a>
-                        <a href="#"><img src="imges/face.png" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/cityview_development/"><img src="imges/instgram.png" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/share/1DKiA9u9Bu/?mibextid=wwXIfr"><img src="imges/face.png" alt="Facebook"></a>
                         <a href="#"><img src="imges/twiter.png" alt="Twitter"></a>
                     </div>
                 </div>
                 <div class="footer-links" data-reveal="up" style="--delay: 0.2s">
                     <div class="footer-col">
-                        <h4>Contact Us</h4>
+                        <h4 data-i18n="footer-contact-h4">Contact Us</h4>
                         <p>01050607061</p>
                         <p>info@cityview.com</p>
-                        <p>Mid Abu El-Kheir Street, New Damietta, Egypt.</p>
+                        <p data-i18n="contact-desc-visit">Mid Abu El-Kheir Street, New Damietta, Egypt.</p>
                     </div>
                     <div class="footer-col">
-                        <h4>About Us</h4>
+                        <h4 data-i18n="footer-about-h4">About Us</h4>
                         <ul>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="index.html#work">Our Work</a></li>
+                            <li><a href="about.html" data-i18n="nav-about">About Us</a></li>
+                            <li><a href="index.html#work" data-i18n="nav-work">Our Work</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>EZDHAR @ 2024. All rights reserved.</p>
+                <p data-i18n="footer-rights">EZDHAR @ 2024. All rights reserved.</p>
             </div>
         </div>
     </footer>
