@@ -302,3 +302,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Link Swiper is handled in initSwiper
 });
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -35,7 +35,7 @@
                         <span id="lang-text">AR</span>
                     </button>
                 </div>
-                <ul id="nav-links">`n                    
+                <ul id="nav-links">
                     <li><a href="index.html" data-i18n="nav-home">Home</a></li>
                     <li><a href="about.html" class="active" data-i18n="nav-about">About Us</a></li>
                     <li><a href="index.html#work" data-i18n="nav-work">Our Work</a></li>
@@ -61,7 +61,6 @@
                     delivering residential, commercial, and administrative projects in prime locations, focused on
                     quality, innovation, and sustainable value.</p>
             </div>
-        </div>
     </section>
 
     <section class="abt-intro">
@@ -72,7 +71,6 @@
                         commercial projects, focused on innovative solutions that meet current and future market needs.
                     </p>
             </div>
-        </div>
     </section>
 
     <section class="abt-vision-mission">
@@ -81,13 +79,12 @@
                 <div class="abt-vm-content">
                     <h2 data-i18n="abt-vision-title">Our Vision</h2>
                     <p class="abt-vm-p" data-i18n="abt-vision-desc">We believe successful development starts with a clear vision, continuous
-                        planning, and effective execution. Our vision is to build projects that meet today’s needs and
+                        planning, and effective execution. Our vision is to build projects that meet todayâ€™s needs and
                         future demands.</p>
                 </div>
                 <div class="abt-vm-image">
                     <img src="imges/project1.png" alt="Our Vision">
                 </div>
-            </div>
 
             <div class="abt-vm-row reverse" data-reveal="right">
                 <div class="abt-vm-content">
@@ -98,7 +95,6 @@
                 <div class="abt-vm-image">
                     <img src="imges/projet2.png" alt="Our Mission">
                 </div>
-            </div>
         </div>
     </section>
 
@@ -110,8 +106,8 @@
                         <img src="imges/mail.png" alt="Mail Icon">
                     </div>
                     <h3 data-i18n="contact-mail">Mail Us :</h3>
-                    <p>info@cityview-eg.com</p>
-                    <a href="mailto:info@cityview-eg.com" class="btn-info" data-i18n="btn-email">Send an Email</a>
+                    <p>info@cityview.com</p>
+                    <a href="mailto:info@cityview.com" class="btn-info" data-i18n="btn-email">Send an Email</a>
                 </div>
                 <div class="info-card" data-reveal="up" style="--delay: 0.3s">
                     <div class="info-icon">
@@ -129,7 +125,6 @@
                     <p data-i18n="contact-desc-visit">Mid Abu El-Kheir Street, New Damietta, Egypt.</p>
                     <a href="#" class="btn-info" data-i18n="btn-loc">Get location</a>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -147,12 +142,11 @@
                         <a href="https://www.facebook.com/share/1DKiA9u9Bu/?mibextid=wwXIfr"><img src="imges/face.png" alt="Facebook"></a>
                         <a href="#"><img src="imges/twiter.png" alt="Twitter"></a>
                     </div>
-                </div>
                 <div class="footer-links" data-reveal="up" style="--delay: 0.2s">
                     <div class="footer-col">
                         <h4 data-i18n="footer-contact-h4">Contact Us</h4>
                         <p>01050607061</p>
-                        <p>info@cityview-eg.com</p>
+                        <p>info@cityview.com</p>
                         <p data-i18n="contact-desc-visit">Mid Abu El-Kheir Street, New Damietta, Egypt.</p>
                     </div>
                     <div class="footer-col">
@@ -162,12 +156,10 @@
                             <li><a href="index.html#work" data-i18n="nav-work">Our Work</a></li>
                         </ul>
                     </div>
-                </div>
             </div>
             <div class="footer-bottom">
                 <p data-i18n="footer-rights">EZDHAR @ 2024. All rights reserved.</p>
             </div>
-        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -175,6 +167,9 @@
 </body>
 
 </html>
+
+
+
 
 
 

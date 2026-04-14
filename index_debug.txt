@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -35,7 +35,7 @@
                         <span id="lang-text">AR</span>
                     </button>
                 </div>
-                <ul id="nav-links">`n
+                <ul id="nav-links">
                     <li><a href="#home" class="active" data-i18n="nav-home">Home</a></li>
                     <li><a href="about.html" data-i18n="nav-about">About Us</a></li>
                     <li><a href="#work" data-i18n="nav-work">Our Work</a></li>
@@ -77,32 +77,63 @@
                         residential, commercial,
                         and administrative projects in prime locations, focused on quality, innovation, and sustainable
                         value..</p>
-                    <a href="" class="btn-primary" data-i18n="btn-contact">Contact Us</a>
+                    <a href="projects.html" class="btn-primary" data-i18n="btn-contact">Contact Us</a>
                 </div>
             </div>
         </div>
     </section>
-
     <section id="work" class="work">
         <div class="container">
             <h2 data-i18n="work-h2">Our Work</h2>
         </div>
         <div class="work-slider swiper">
             <div class="swiper-wrapper">
+                <!-- <div class="swiper-slide">
+                    <div class="work-card">
+                        <img src="imges/project.png" alt="City View Project 1">
+                        <div class="work-info">
+                            <div class="work-text">
+                                <h3>City View</h3>
+                                <p class="location"><img src="imges/map-pin.png" class="icon" alt="">Cairo, Fifth
+                                    Settlement
+                                </p>
+                            </div>
+                            <a href="projects.html" class="btn-work-details">PROJECT DETAILS <span
+                                    class="arrow">â†—</span></a>
+                        </div>
+                </div> -->
+
+                <!-- <div class="swiper-slide">
+                    <div class="work-card">
+                        <img src="imges/banar.png" alt="Elite Residence">
+                        <div class="work-info">
+                            <div class="work-text">
+                                <h3>Elite Residence</h3>
+                                <p class="location"><img src="imges/map-pin.png" class="icon" alt=""> New Capital, Cairo
+                                </p>
+                                <p class="desc">Every idea starts with a spark Ezdhar turns it into reality. As your
+                                    growth partner, we unite strategy, design</p>
+                            </div>
+                            <a href="projects.html" class="btn-work-details">PROJECT DETAILS <span
+                                    class="arrow">â†—</span></a>
+                        </div>
+                </div> -->
+
                 <div class="swiper-slide">
                     <div class="work-card">
                         <img src="imges/Piece-No-116 .png" alt="Sky Tower">
                         <div class="work-info">
                             <div class="work-text">
                                 <h3 data-i18n="proj-116-title">Piece No.116</h3>
+                                <!-- <p class="location"><img src="imges/map-pin.png" class="icon" alt=""> Cairo, Fifth
+                                    Settlement</p> -->
                                 <p class="desc" data-i18n="proj-116-desc">Center Point Mall is a prime mixed-use
                                     development with a strategic
                                     location, flexible spaces, and convenient accessibility.</p>
                             </div>
                             <a href="projectPiece- No-116.html" class="btn-work-details"
-                                data-i18n="btn-proj-details">PROJECT DETAILS <span class="arrow">↗</span></a>
+                                data-i18n="btn-proj-details">PROJECT DETAILS <span class="arrow">â†—</span></a>
                         </div>
-                    </div>
                 </div>
 
                 <div class="swiper-slide">
@@ -111,14 +142,15 @@
                         <div class="work-info">
                             <div class="work-text">
                                 <h3 data-i18n="proj-pm-title">Center Point Mall</h3>
+                                <!-- <p class="location"><img src="imges/map-pin.png" class="icon" alt=""> Cairo, Fifth
+                                    Settlement</p> -->
                                 <p class="desc" data-i18n="proj-pm-desc">Center Point Mall is a prime, strategically
                                     located mixed-use
                                     development with flexible spaces and easy access.</p>
                             </div>
                             <a href="projectpointmall.html" class="btn-work-details"
-                                data-i18n="btn-proj-details">PROJECT DETAILS <span class="arrow">↗</span></a>
+                                data-i18n="btn-proj-details">PROJECT DETAILS <span class="arrow">â†—</span></a>
                         </div>
-                    </div>
                 </div>
 
                 <div class="swiper-slide">
@@ -127,14 +159,15 @@
                         <div class="work-info">
                             <div class="work-text">
                                 <h3 data-i18n="proj-7d-title">Piece No.7D</h3>
+                                <!-- <p class="location"><img src="imges/map-pin.png" class="icon" alt=""> Cairo, Fifth
+                                    Settlement</p> -->
                                 <p class="desc" data-i18n="proj-7d-desc">A unique Smart Village investment with a prime
                                     location, international
                                     views, high-quality design, and units ready within a year.</p>
                             </div>
                             <a href="projectPiece- No-7D.html" class="btn-work-details"
-                                data-i18n="btn-proj-details">PROJECT DETAILS <span class="arrow">↗</span></a>
+                                data-i18n="btn-proj-details">PROJECT DETAILS <span class="arrow">â†—</span></a>
                         </div>
-                    </div>
                 </div>
 
                 <div class="swiper-slide">
@@ -143,14 +176,14 @@
                         <div class="work-info">
                             <div class="work-text">
                                 <h3 data-i18n="proj-73a-title">Piece No.73A</h3>
+                                <!-- <p class="location"><img src="imges/map-pin.png" class="icon" alt=""> London, UK</p> -->
                                 <p class="desc" data-i18n="proj-73a-desc">A prime Smart Village project with a strategic
                                     location, sea views,
                                     diverse spaces, competitive prices, flexible plans, and fast delivery.</p>
                             </div>
                             <a href="projectPiece- No-73A.html" class="btn-work-details"
-                                data-i18n="btn-proj-details">PROJECT DETAILS <span class="arrow">↗</span></a>
+                                data-i18n="btn-proj-details">PROJECT DETAILS <span class="arrow">â†—</span></a>
                         </div>
-                    </div>
                 </div>
 
                 <div class="swiper-slide">
@@ -159,23 +192,20 @@
                         <div class="work-info">
                             <div class="work-text">
                                 <h3 data-i18n="proj-632-title">Piece No.632/11</h3>
+                                <!-- <p class="location"><img src="imges/map-pin.png" class="icon" alt=""> Ibiza, Spain</p> -->
                                 <p class="desc" data-i18n="proj-632-desc">Experience luxury living in a prime location
                                     with elegant designs,
                                     stunning views, and thoughtfully planned units ensuring comfort and privacy.</p>
                             </div>
                             <a href="projectPiece- No-632-11.html" class="btn-work-details"
-                                data-i18n="btn-proj-details">PROJECT DETAILS <span class="arrow">↗</span></a>
+                                data-i18n="btn-proj-details">PROJECT DETAILS <span class="arrow">â†—</span></a>
                         </div>
-                    </div>
                 </div>
-            </div>
             <div class="slider-nav">
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
-            </div>
         </div>
     </section>
-
     <section id="about-app" class="about">
         <div class="container">
             <h2 class="section-title" data-i18n="app-h2-title">About The App</h2>
@@ -192,7 +222,6 @@
                         budget, and resell your property easily all in one place.</p>
                     <a href="aboutapp.html" class="btn-primary" data-i18n="btn-download-now">Download Now</a>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -207,7 +236,6 @@
                         <h3 data-i18n="dl-android">Download For Android</h3>
                         <p data-i18n="dl-scan">Scan The QR Code</p>
                     </div>
-                </div>
                 <div class="download-card" data-reveal="up" style="--delay: 0.3s">
                     <div class="qr-code">
                         <img src="imges/image 706.png" alt="QR Code iOS">
@@ -216,9 +244,7 @@
                         <h3 data-i18n="dl-ios">Download For iOS</h3>
                         <p data-i18n="dl-scan">Scan The QR Code</p>
                     </div>
-                </div>
             </div>
-        </div>
     </section>
 
     <section id="contacts" class="contact-info" data-reveal="up">
@@ -229,8 +255,8 @@
                         <img src="imges/mail.png" alt="Mail Icon">
                     </div>
                     <h3 data-i18n="contact-mail">Mail Us :</h3>
-                    <p>info@cityview-eg.com</p>
-                    <a href="mailto:info@cityview-eg.com" class="btn-info" data-i18n="btn-email">Send an Email</a>
+                    <p>info@cityview.com</p>
+                    <a href="mailto:info@cityview.com" class="btn-info" data-i18n="btn-email">Send an Email</a>
                 </div>
                 <div class="info-card" data-reveal="up" style="--delay: 0.3s">
                     <div class="info-icon">
@@ -246,11 +272,7 @@
                     </div>
                     <h3 data-i18n="contact-visit">Visit Us :</h3>
                     <p data-i18n="contact-desc-visit">Mid Abu El-Kheir Street, New Damietta, Egypt.</p>
-                    <a href="#" class="btn-info" data-i18n="btn-loc">Get location</a>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <a href="#" class="btn-info" data-i18n="btn-loc">Get location</a>`n                </div>`n            </div>`n        </div>`n    </section>
 
     <section class="contact-msg">
         <div class="container">
@@ -259,21 +281,18 @@
                     <p class="subtitle" data-i18n="msg-sub">Drop Us A Message</p>
                     <h2 data-i18n="msg-h2">Let's Start Working Together. Get in Touch</h2>
 
-                    <form class="contact-form" action="mailto:info@cityview-eg.com" method="post" enctype="text/plain">
+                    <form class="contact-form">
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required
-                                data-i18n="placeholder-name">
+                            <input type="text" placeholder="Your Name" required data-i18n="placeholder-name">
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required
-                                data-i18n="placeholder-email">
+                            <input type="email" placeholder="Your Email" required data-i18n="placeholder-email">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="subject" placeholder="Subject" required
-                                data-i18n="placeholder-subject">
+                            <input type="text" placeholder="Subject" required data-i18n="placeholder-subject">
                         </div>
                         <div class="form-group">
-                            <textarea name="message" placeholder="Your Message" rows="4" required
+                            <textarea placeholder="Your Message" rows="4" required
                                 data-i18n="placeholder-msg"></textarea>
                         </div>
                         <button type="submit" class="btn-submit" data-i18n="btn-submit">Get In Touch</button>
@@ -285,7 +304,6 @@
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -306,12 +324,11 @@
                                 alt="Facebook"></a>
                         <a href="#"><img src="imges/twiter.png" alt="Twitter"></a>
                     </div>
-                </div>
                 <div class="footer-links" data-reveal="up" style="--delay: 0.2s">
                     <div class="footer-col">
                         <h4 data-i18n="footer-contact-h4">Contact Us</h4>
                         <p>01050607061</p>
-                        <p>info@cityview-eg.com</p>
+                        <p>info@cityview.com</p>
                         <p data-i18n="contact-desc-visit">Mid Abu El-Kheir Street, New Damietta, Egypt.</p>
                     </div>
                     <div class="footer-col">
@@ -321,12 +338,10 @@
                             <li><a href="#work" data-i18n="nav-work">Our Work</a></li>
                         </ul>
                     </div>
-                </div>
             </div>
             <div class="footer-bottom">
                 <p data-i18n="footer-rights">EZDHAR @ 2024. All rights reserved.</p>
             </div>
-        </div>
     </footer>
 
     <!-- Swiper JS -->
@@ -335,3 +350,9 @@
 </body>
 
 </html>
+
+
+
+
+
+
